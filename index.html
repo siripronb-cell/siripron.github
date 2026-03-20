@@ -2,9 +2,8 @@
 <html lang="th">
 <head>
 <meta charset="utf-8">
-<title>วารสารทางการพยาบาล</title>
+<title>วารสารทางการพยาบาล - คณะพยาบาลศาสตร์ มมส.</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <link rel="stylesheet" href="css/bootstrap.css">
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.js"></script>
@@ -14,453 +13,145 @@
   body { font-family: 'Itim', cursive; background-color: #1a1a1a; }
   .main-bg { background-color: rgba(51,51,51,0.95); min-height: 100vh; padding-bottom: 50px; }
   
-  /* จัดการการ์ดให้เท่ากัน */
-  .journal-card-wrapper { display: flex; flex-direction: column; height: 100%; }
-  .card { 
-    border-radius: 8px; 
-    height: 100%; 
-    transition: 0.3s; 
-    border: none;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-  }
-  .card:hover { 
-    box-shadow: 0px 10px 25px rgba(0,0,0,0.6); 
-    transform: translateY(-5px);
-  }
+  /* จัดการการ์ดวารสาร */
+  .card { border-radius: 8px; height: 100%; transition: 0.3s; border: none; overflow: hidden; display: flex; flex-direction: column; background: #fff; }
+  .card:hover { box-shadow: 0 8px 25px rgba(0,0,0,0.5); transform: translateY(-5px); }
   
-  /* หัวข้อวารสาร */
+  /* หัวข้อวารสาร - ล็อคความสูงเพื่อไม่ให้รูปเลื่อน */
   .journal-title {
-    font-weight: bold;
-    font-size: 14px;
-    color: #333;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    min-height: 42px;
-    text-decoration: none !important;
-    margin-bottom: 10px;
+    font-weight: bold; font-size: 14px; color: #333; padding: 10px 5px;
+    min-height: 55px; display: flex; align-items: center; justify-content: center;
+    text-align: center; text-decoration: none !important;
   }
-  .journal-title:hover { color: #4f65e6; }
 
-  /* พื้นที่รูปภาพ */
+  /* ล็อคขนาดรูปภาพให้เท่ากันทุกลูก */
   .img-container {
-    width: 100%;
-    height: 180px;
-    background: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10px;
+    width: 100%; height: 200px; background: #fff;
+    display: flex; align-items: center; justify-content: center; padding: 10px;
   }
   .img-container img { max-width: 100%; max-height: 100%; object-fit: contain; }
-  
-  .issn-text { font-size: 12px; color: #666; display: block; margin-top: auto; }
-  
-  .banner-img { width: 100%; height: 400px; object-fit: cover; }
 
+  .issn-text { font-size: 12px; color: #666; padding-bottom: 10px; }
+
+  /* Responsive สำหรับมือถือ */
   @media (max-width: 768px) {
+    .col-mobile { flex: 0 0 50%; max-width: 50%; padding: 5px !important; }
+    .journal-title { font-size: 12px; min-height: 45px; }
+    .img-container { height: 140px; }
     .banner-img { height: 180px !important; }
-    .journal-title { font-size: 12px; min-height: 36px; }
-    .img-container { height: 150px; }
   }
 </style>
 </head>
 
 <body>
-
 <div class="container main-bg">
-  <div class="row">
-    <div class="col-12 p-0">
-      <img src="images/bn.jpg" class="banner-img">
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="col-12 p-0">
-      <nav class="navbar navbar-expand-lg navbar-dark" style="background:#272727;">
-        <a class="navbar-brand" href="#"><img src="images/NULOGO.png" style="height:40px;"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="menu">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a class="nav-link" href="index.html">หน้าแรก</a></li>
-            <li class="nav-item"><a class="nav-link" href="a1.html">วารสาร</a></li>
-            <li class="nav-item"><a class="nav-link" href="a5.html">วารสารต่างประเทศ</a></li>
-            <li class="nav-item"><a class="nav-link" href="a2.html">ฐานข้อมูลออนไลน์</a></li>
-            <li class="nav-item"><a class="nav-link" href="a4.html">หนังสืออิเล็กทรอนิกส์</a></li>
-            <li class="nav-item"><a class="nav-link" href="a3.html">ติดต่อเรา</a></li>
-          </ul>
-        </div>
-      </nav>
+  <div class="row"><div class="col-12 p-0"><img src="images/bn.jpg" class="banner-img" style="width:100%; height:400px; object-fit:cover;"></div></div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background:#272727; border-bottom: 2px solid #4f65e6;">
+    <a class="navbar-brand" href="#"><img src="images/NULOGO.png" style="height:40px;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">หน้าแรก</a></li>
+        <li class="nav-item"><a class="nav-link" href="a1.html">วารสาร</a></li>
+        <li class="nav-item"><a class="nav-link" href="a5.html">วารสารต่างประเทศ</a></li>
+        <li class="nav-item"><a class="nav-link" href="a2.html">ฐานข้อมูลออนไลน์</a></li>
+        <li class="nav-item"><a class="nav-link" href="a4.html">หนังสืออิเล็กทรอนิกส์</a></li>
+        <li class="nav-item"><a class="nav-link" href="a3.html">ติดต่อเรา</a></li>
+      </ul>
     </div>
-  </div>
+  </nav>
 
   <div class="row my-4 px-3">
     <div class="col-md-6 mx-auto">
       <div class="input-group">
-        <input type="text" id="searchInput" class="form-control" placeholder="พิมพ์ชื่อวารสารเพื่อค้นหา..." onkeyup="searchJournals()">
-        <div class="input-group-append">
-          <button class="btn btn-light" onclick="clearSearch()">❌</button>
+        <input type="text" id="searchInput" class="form-control" placeholder="ค้นชื่อวารสาร..." onkeyup="searchFn()">
+        <div class="input-group-append"><button class="btn btn-light" onclick="clearFn()">ล้าง</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row px-2 text-center" id="journalBox">
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he02.tci-thaijo.org/index.php/ns/issue/view/18806" target="_blank" class="journal-title">วารสารพยาบาลศาสตร์</a><div class="img-container"><a href="https://he02.tci-thaijo.org/index.php/ns/issue/view/18806" target="_blank"><img src="images/v1.jpg"></a></div><span class="issn-text">ISSN : 2651-1959</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he02.tci-thaijo.org/index.php/TJONC/issue/view/18826" target="_blank" class="journal-title">วารสารสภาพยาบาล</a><div class="img-container"><a href="https://he02.tci-thaijo.org/index.php/TJONC/issue/view/18826" target="_blank"><img src="images/v2.png"></a></div><span class="issn-text">ISSN : 2985-0894</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he01.tci-thaijo.org/index.php/CMMJ-MedCMJ/issue/view/18493" target="_blank" class="journal-title">เชียงใหม่เวชสาร</a><div class="img-container"><a href="https://he01.tci-thaijo.org/index.php/CMMJ-MedCMJ/issue/view/18493" target="_blank"><img src="images/v3.jpg"></a></div><span class="issn-text">ISSN : 2651-2025</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he01.tci-thaijo.org/index.php/nah/issue/view/18517" target="_blank" class="journal-title">วารสารพยาบาลศาสตร์และสุขภาพ</a><div class="img-container"><a href="https://he01.tci-thaijo.org/index.php/nah/issue/view/18517" target="_blank"><img src="images/v4.jpg"></a></div><span class="issn-text">ISSN : 2822-1133</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he01.tci-thaijo.org/index.php/bcnpy/issue/view/18524" target="_blank" class="journal-title">วารสารวิจัยการพยาบาลและสุขภาพ</a><div class="img-container"><a href="https://he01.tci-thaijo.org/index.php/bcnpy/issue/view/18524" target="_blank"><img src="images/v5.jpg"></a></div><span class="issn-text">ISSN : 2985-1343</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he02.tci-thaijo.org/index.php/tnaph" target="_blank" class="journal-title">วารสารพยาบาลกระทรวงสาธารณสุข</a><div class="img-container"><a href="https://he02.tci-thaijo.org/index.php/tnaph" target="_blank"><img src="images/v6.png"></a></div><span class="issn-text">ISSN : 2673-0693</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he02.tci-thaijo.org/index.php/RNJ/issue/view/18819" target="_blank" class="journal-title">วารสารวิจัยและนวัตกรรมทางการพยาบาล</a><div class="img-container"><a href="https://he02.tci-thaijo.org/index.php/RNJ/issue/view/18819" target="_blank"><img src="images/v7.jpg"></a></div><span class="issn-text">ISSN : 2822-1389</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he01.tci-thaijo.org/index.php/bcnbangkok/issue/view/18479" target="_blank" class="journal-title">วารสารวิจัยสุขภาพและการพยาบาล</a><div class="img-container"><a href="https://he01.tci-thaijo.org/index.php/bcnbangkok/issue/view/18479" target="_blank"><img src="images/v8.png"></a></div><span class="issn-text">ISSN : 2697-5041</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he01.tci-thaijo.org/index.php/JRTAN/issue/view/18469" target="_blank" class="journal-title">วารสารพยาบาลทหารบก</a><div class="img-container"><a href="https://he01.tci-thaijo.org/index.php/JRTAN/issue/view/18469" target="_blank"><img src="images/v9.jpg"></a></div><span class="issn-text">ISSN : 2651-2181</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he01.tci-thaijo.org/index.php/jnat-ned/issue/view/18508" target="_blank" class="journal-title">วารสารการพยาบาลและการดูแลสุขภาพ</a><div class="img-container"><a href="https://he01.tci-thaijo.org/index.php/jnat-ned/issue/view/18508" target="_blank"><img src="images/v10.jpg"></a></div><span class="issn-text">ISSN : 2985-1432</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he01.tci-thaijo.org/index.php/pck/issue/view/18392" target="_blank" class="journal-title">วารสารวิทยาลัยพยาบาลพระจอมเกล้า</a><div class="img-container"><a href="https://he01.tci-thaijo.org/index.php/pck/issue/view/18392" target="_blank"><img src="images/v11.jpg"></a></div><span class="issn-text">ISSN : 2985-0150</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he02.tci-thaijo.org/index.php/trcnj/issue/view/18845" target="_blank" class="journal-title">วารสารพยาบาลสภากาชาดไทย</a><div class="img-container"><a href="https://he02.tci-thaijo.org/index.php/trcnj/issue/view/18845" target="_blank"><img src="images/v12.png"></a></div><span class="issn-text">ISSN : 3027-6489</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he01.tci-thaijo.org/index.php/JND/issue/view/18504" target="_blank" class="journal-title">วารสารกองการพยาบาล</a><div class="img-container"><a href="https://he01.tci-thaijo.org/index.php/JND/issue/view/18504" target="_blank"><img src="images/v13.jpg"></a></div><span class="issn-text">ISSN : 3088-1706</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he01.tci-thaijo.org/index.php/kcn/issue/view/18527" target="_blank" class="journal-title">วารสารเกื้อการุณย์</a><div class="img-container"><a href="https://he01.tci-thaijo.org/index.php/kcn/issue/view/18527" target="_blank"><img src="images/v14.png"></a></div><span class="issn-text">ISSN : 3057-1782</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he01.tci-thaijo.org/index.php/phn/issue/view/18488" target="_blank" class="journal-title">วารสารพยาบาลสาธารณสุข</a><div class="img-container"><a href="https://he01.tci-thaijo.org/index.php/phn/issue/view/18488" target="_blank"><img src="images/v15.jpg"></a></div><span class="issn-text">ISSN : 3057-0158</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he02.tci-thaijo.org/index.php/TJN/issue/view/18577" target="_blank" class="journal-title">วารสารพยาบาล (THAI JOURNAL)</a><div class="img-container"><a href="https://he02.tci-thaijo.org/index.php/TJN/issue/view/18577" target="_blank"><img src="images/v16.png"></a></div><span class="issn-text">ISSN : 3057-188X</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he02.tci-thaijo.org/index.php/vnj/issue/view/18790" target="_blank" class="journal-title">วชิรสารการพยาบาล</a><div class="img-container"><a href="https://he02.tci-thaijo.org/index.php/vnj/issue/view/18790" target="_blank"><img src="images/v17.jpg"></a></div><span class="issn-text">ISSN : 3027-8066</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he02.tci-thaijo.org/index.php/reg45" target="_blank" class="journal-title">วารสารแพทย์เขต 4-5</a><div class="img-container"><a href="https://he02.tci-thaijo.org/index.php/reg45" target="_blank"><img src="images/v18.jpg"></a></div><span class="issn-text">ISSN : 3088-2699</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he01.tci-thaijo.org/index.php/policenurse" target="_blank" class="journal-title">วารสารพยาบาลตำรวจ</a><div class="img-container"><a href="https://he01.tci-thaijo.org/index.php/policenurse" target="_blank"><img src="images/v19.jpg"></a></div><span class="issn-text">ISSN : 2672-961X</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he02.tci-thaijo.org/index.php/HSJT" target="_blank" class="journal-title">วารสารวิทยาศาสตร์สุขภาพไทย</a><div class="img-container"><a href="https://he02.tci-thaijo.org/index.php/HSJT" target="_blank"><img src="images/v20.jpg"></a></div><span class="issn-text">ISSN : 2773-8817</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he03.tci-thaijo.org/index.php/nhphj" target="_blank" class="journal-title">วารสารการพยาบาล สุขภาพเเละสาธารณสุข</a><div class="img-container"><a href="https://he03.tci-thaijo.org/index.php/nhphj" target="_blank"><img src="images/v21.png"></a></div><span class="issn-text">ISSN : 2774-082X</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he01.tci-thaijo.org/index.php/slc" target="_blank" class="journal-title">วารสารสุขภาพกับการจัดการสุขภาพ</a><div class="img-container"><a href="https://he01.tci-thaijo.org/index.php/slc" target="_blank"><img src="images/v22.jpg"></a></div><span class="issn-text">ISSN : 3027-6454</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he04.tci-thaijo.org/index.php/PPHJ" target="_blank" class="journal-title">วารสารโรงพยาบาลพหลพลพยุหเสนา</a><div class="img-container"><a href="https://he04.tci-thaijo.org/index.php/PPHJ" target="_blank"><img src="images/v23.jpg"></a></div><span class="issn-text">ISSN : 3057-0026</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he01.tci-thaijo.org/index.php/unc" target="_blank" class="journal-title">วารสารวิจัยการพยาบาลและวิทยาศาสตร์สุขภาพ</a><div class="img-container"><a href="https://he01.tci-thaijo.org/index.php/unc" target="_blank"><img src="images/v24.jpg"></a></div><span class="issn-text">ISSN : 2822-0706</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he02.tci-thaijo.org/index.php/cmunursing" target="_blank" class="journal-title">พยาบาลสาร มหาวิทยาลัยเชียงใหม่</a><div class="img-container"><a href="https://he02.tci-thaijo.org/index.php/cmunursing" target="_blank"><img src="images/v25.png"></a></div><span class="issn-text">ISSN : 2821-9139</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he02.tci-thaijo.org/index.php/jhri" target="_blank" class="journal-title">วารสารวิจัยและนวัตกรรมทางสุขภาพ</a><div class="img-container"><a href="https://he02.tci-thaijo.org/index.php/jhri" target="_blank"><img src="img1/v26.jpg"></a></div><span class="issn-text">ISSN : 2822-034X</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he02.tci-thaijo.org/index.php/Nubuu" target="_blank" class="journal-title">วารสารคณะพยาบาลศาสตร์ ม.บูรพา</a><div class="img-container"><a href="https://he02.tci-thaijo.org/index.php/Nubuu" target="_blank"><img src="img1/v27.jpg"></a></div><span class="issn-text">ISSN : 2774-1214</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he01.tci-thaijo.org/index.php/JHR" target="_blank" class="journal-title">วารสารวิจัยทางวิทยาศาสตร์สุขภาพ</a><div class="img-container"><a href="https://he01.tci-thaijo.org/index.php/JHR" target="_blank"><img src="img1/v28.jpg"></a></div><span class="issn-text">ISSN : 3027-6659</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he01.tci-thaijo.org/index.php/JNAE" target="_blank" class="journal-title">วารสารการพยาบาลและการศึกษา</a><div class="img-container"><a href="https://he01.tci-thaijo.org/index.php/JNAE" target="_blank"><img src="img1/v29.jpg"></a></div><span class="issn-text">ISSN : 2821-9058</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he01.tci-thaijo.org/index.php/CUTJ" target="_blank" class="journal-title">วารสารมหาวิทยาลัยคริสเตียน</a><div class="img-container"><a href="https://he01.tci-thaijo.org/index.php/CUTJ" target="_blank"><img src="img1/v30.jpg"></a></div><span class="issn-text">ISSN : 3027-6217</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he03.tci-thaijo.org/index.php/jnhi" target="_blank" class="journal-title">วารสารการพยาบาลและนวัตกรรมสุขภาพ</a><div class="img-container"><a href="https://he03.tci-thaijo.org/index.php/jnhi" target="_blank"><img src="img1/v31.jpg"></a></div><span class="issn-text">ISSN : 9999-2567</span></div></div>
+    <div class="col-sm-3 col-mobile mb-4"><div class="card"><a href="https://he04.tci-thaijo.org/index.php/JHIS" target="_blank" class="journal-title">วารสารนวัตกรรมสุขภาพและความปลอดภัย</a><div class="img-container"><a href="https://he04.tci-thaijo.org/index.php/JHIS" target="_blank"><img src="img1/v32.png"></a></div><span class="issn-text">ISSN : 3057-1111</span></div></div>
+  </div>
+
+  <hr style="border-top: 2px solid #555;">
+
+  <div class="row text-center mt-4">
+    <div class="col-sm-6 mb-4">
+      <div class="card p-4" style="background:#f8f9fa;">
+        <h4 style="font-weight:bold; color:#4f65e6; border-bottom:2px solid #4f65e6; padding-bottom:10px;">ฐานข้อมูลออนไลน์</h4>
+        <div class="mt-3">
+          <a href="https://search.ebscohost.com/login.aspx?authtype=ip,guest&custid=ns011880&groupid=main&profile=eds" target="_blank" style="font-size:16px; display:block; margin-bottom:10px;">CINAHL Complete</a>
+          <a href="https://www.sciencedirect.com/" target="_blank" style="font-size:16px; display:block;">ScienceDirect</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 mb-4">
+      <div class="card p-4" style="background:#f8f9fa;">
+        <h4 style="font-weight:bold; color:#4f65e6; border-bottom:2px solid #4f65e6; padding-bottom:10px;">หนังสืออิเล็กทรอนิกส์</h4>
+        <div class="mt-3">
+          <a href="https://ebookcentral.proquest.com/lib/msu-th/home.action" target="_blank" style="font-size:16px; display:block;">ProQuest Ebook Central</a>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="row px-2 text-center" id="journalContainer">
-    
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he02.tci-thaijo.org/index.php/ns/issue/view/18806" target="_blank" class="journal-title">วารสารพยาบาลศาสตร์ (NURSING SCIENCE)</a>
-        <div class="img-container">
-          <a href="https://he02.tci-thaijo.org/index.php/ns/issue/view/18806" target="_blank"><img src="images/v1.jpg"></a>
-        </div>
-        <span class="issn-text">ISSN : 2651-1959</span>
-      </div>
+  <div class="row pt-4" style="background:#292828; color:#fff; border-top: 3px solid #4f65e6; margin:0;">
+    <div class="col-md-6 mb-4 px-4">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:15px;"><img src="images/NULOGO.png" style="height:50px;"><img src="images/lnu.jpg" style="height:40px;"></div>
+      <p>มหาวิทยาลัยมหาสารคาม คณะพยาบาลศาสตร์<br>Faculty of Nursing Mahasarakham University<br>ห้องศึกษาด้วยตนเอง</p>
     </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he02.tci-thaijo.org/index.php/TJONC/issue/view/18826" target="_blank" class="journal-title">วารสารสภาพยาบาล (JTNC)</a>
-        <div class="img-container">
-          <a href="https://he02.tci-thaijo.org/index.php/TJONC/issue/view/18826" target="_blank"><img src="images/v2.png"></a>
-        </div>
-        <span class="issn-text">ISSN : 2985-0894</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he01.tci-thaijo.org/index.php/CMMJ-MedCMJ/issue/view/18493" target="_blank" class="journal-title">เชียงใหม่เวชสาร (CMMJ)</a>
-        <div class="img-container">
-          <a href="https://he01.tci-thaijo.org/index.php/CMMJ-MedCMJ/issue/view/18493" target="_blank"><img src="images/v3.jpg"></a>
-        </div>
-        <span class="issn-text">ISSN : 2651-2025</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he01.tci-thaijo.org/index.php/nah/issue/view/18517" target="_blank" class="journal-title">วารสารพยาบาลศาสตร์และสุขภาพ</a>
-        <div class="img-container">
-          <a href="https://he01.tci-thaijo.org/index.php/nah/issue/view/18517" target="_blank"><img src="images/v4.jpg"></a>
-        </div>
-        <span class="issn-text">ISSN : 2822-1133</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he01.tci-thaijo.org/index.php/bcnpy/issue/view/18524" target="_blank" class="journal-title">วารสารวิจัยการพยาบาลและสุขภาพ</a>
-        <div class="img-container">
-          <a href="https://he01.tci-thaijo.org/index.php/bcnpy/issue/view/18524" target="_blank"><img src="images/v5.jpg"></a>
-        </div>
-        <span class="issn-text">ISSN : 2985-1343</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he02.tci-thaijo.org/index.php/tnaph" target="_blank" class="journal-title">วารสารพยาบาลกระทรวงสาธารณสุข</a>
-        <div class="img-container">
-          <a href="https://he02.tci-thaijo.org/index.php/tnaph" target="_blank"><img src="images/v6.png"></a>
-        </div>
-        <span class="issn-text">ISSN : 2673-0693</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he02.tci-thaijo.org/index.php/RNJ/issue/view/18819" target="_blank" class="journal-title">วารสารวิจัยและนวัตกรรมทางการพยาบาล</a>
-        <div class="img-container">
-          <a href="https://he02.tci-thaijo.org/index.php/RNJ/issue/view/18819" target="_blank"><img src="images/v7.jpg"></a>
-        </div>
-        <span class="issn-text">ISSN : 2822-1389</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he01.tci-thaijo.org/index.php/bcnbangkok/issue/view/18479" target="_blank" class="journal-title">วารสารวิจัยสุขภาพและการพยาบาล</a>
-        <div class="img-container">
-          <a href="https://he01.tci-thaijo.org/index.php/bcnbangkok/issue/view/18479" target="_blank"><img src="images/v8.png"></a>
-        </div>
-        <span class="issn-text">ISSN : 2697-5041</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he01.tci-thaijo.org/index.php/JRTAN/issue/view/18469" target="_blank" class="journal-title">วารสารพยาบาลทหารบก</a>
-        <div class="img-container">
-          <a href="https://he01.tci-thaijo.org/index.php/JRTAN/issue/view/18469" target="_blank"><img src="images/v9.jpg"></a>
-        </div>
-        <span class="issn-text">ISSN : 2651-2181</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he01.tci-thaijo.org/index.php/jnat-ned/issue/view/18508" target="_blank" class="journal-title">วารสารการพยาบาลและการดูแลสุขภาพ</a>
-        <div class="img-container">
-          <a href="https://he01.tci-thaijo.org/index.php/jnat-ned/issue/view/18508" target="_blank"><img src="images/v10.jpg"></a>
-        </div>
-        <span class="issn-text">ISSN : 2985-1432</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he01.tci-thaijo.org/index.php/pck/issue/view/18392" target="_blank" class="journal-title">วารสารวิทยาลัยพยาบาลพระจอมเกล้า</a>
-        <div class="img-container">
-          <a href="https://he01.tci-thaijo.org/index.php/pck/issue/view/18392" target="_blank"><img src="images/v11.jpg"></a>
-        </div>
-        <span class="issn-text">ISSN : 2985-0150</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he02.tci-thaijo.org/index.php/trcnj/issue/view/18845" target="_blank" class="journal-title">วารสารพยาบาลสภากาชาดไทย</a>
-        <div class="img-container">
-          <a href="https://he02.tci-thaijo.org/index.php/trcnj/issue/view/18845" target="_blank"><img src="images/v12.png"></a>
-        </div>
-        <span class="issn-text">ISSN : 3027-6489</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he01.tci-thaijo.org/index.php/JND/issue/view/18504" target="_blank" class="journal-title">วารสารกองการพยาบาล</a>
-        <div class="img-container">
-          <a href="https://he01.tci-thaijo.org/index.php/JND/issue/view/18504" target="_blank"><img src="images/v13.jpg"></a>
-        </div>
-        <span class="issn-text">ISSN : 3088-1706</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he01.tci-thaijo.org/index.php/kcn/issue/view/18527" target="_blank" class="journal-title">วารสารเกื้อการุณย์</a>
-        <div class="img-container">
-          <a href="https://he01.tci-thaijo.org/index.php/kcn/issue/view/18527" target="_blank"><img src="images/v14.png"></a>
-        </div>
-        <span class="issn-text">ISSN : 3057-1782</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he01.tci-thaijo.org/index.php/phn/issue/view/18488" target="_blank" class="journal-title">วารสารพยาบาลสาธารณสุข</a>
-        <div class="img-container">
-          <a href="https://he01.tci-thaijo.org/index.php/phn/issue/view/18488" target="_blank"><img src="images/v15.jpg"></a>
-        </div>
-        <span class="issn-text">ISSN : 3057-0158</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he02.tci-thaijo.org/index.php/TJN/issue/view/18577" target="_blank" class="journal-title">วารสารพยาบาล (THAI JOURNAL)</a>
-        <div class="img-container">
-          <a href="https://he02.tci-thaijo.org/index.php/TJN/issue/view/18577" target="_blank"><img src="images/v16.png"></a>
-        </div>
-        <span class="issn-text">ISSN : 3057-188X</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he02.tci-thaijo.org/index.php/vnj/issue/view/18790" target="_blank" class="journal-title">วชิรสารการพยาบาล</a>
-        <div class="img-container">
-          <a href="https://he02.tci-thaijo.org/index.php/vnj/issue/view/18790" target="_blank"><img src="images/v17.jpg"></a>
-        </div>
-        <span class="issn-text">ISSN : 3027-8066</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he02.tci-thaijo.org/index.php/reg45" target="_blank" class="journal-title">วารสารแพทย์เขต 4-5</a>
-        <div class="img-container">
-          <a href="https://he02.tci-thaijo.org/index.php/reg45" target="_blank"><img src="images/v18.jpg"></a>
-        </div>
-        <span class="issn-text">ISSN : 3088-2699</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he01.tci-thaijo.org/index.php/policenurse" target="_blank" class="journal-title">วารสารพยาบาลตำรวจ</a>
-        <div class="img-container">
-          <a href="https://he01.tci-thaijo.org/index.php/policenurse" target="_blank"><img src="images/v19.jpg"></a>
-        </div>
-        <span class="issn-text">ISSN : 2672-961X</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he02.tci-thaijo.org/index.php/HSJT" target="_blank" class="journal-title">วารสารวิทยาศาสตร์สุขภาพไทย</a>
-        <div class="img-container">
-          <a href="https://he02.tci-thaijo.org/index.php/HSJT" target="_blank"><img src="images/v20.jpg"></a>
-        </div>
-        <span class="issn-text">ISSN : 2773-8817</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he03.tci-thaijo.org/index.php/nhphj" target="_blank" class="journal-title">วารสารการพยาบาล สุขภาพเเละสาธารณสุข</a>
-        <div class="img-container">
-          <a href="https://he03.tci-thaijo.org/index.php/nhphj" target="_blank"><img src="images/v21.png"></a>
-        </div>
-        <span class="issn-text">ISSN : 2774-082X</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he01.tci-thaijo.org/index.php/slc" target="_blank" class="journal-title">วารสารสุขภาพกับการจัดการสุขภาพ</a>
-        <div class="img-container">
-          <a href="https://he01.tci-thaijo.org/index.php/slc" target="_blank"><img src="images/v22.jpg"></a>
-        </div>
-        <span class="issn-text">ISSN : 3027-6454</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he04.tci-thaijo.org/index.php/PPHJ" target="_blank" class="journal-title">วารสารโรงพยาบาลพหลพลพยุหเสนา</a>
-        <div class="img-container">
-          <a href="https://he04.tci-thaijo.org/index.php/PPHJ" target="_blank"><img src="images/v23.jpg"></a>
-        </div>
-        <span class="issn-text">ISSN : 3057-0026</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he01.tci-thaijo.org/index.php/unc" target="_blank" class="journal-title">วารสารวิจัยการพยาบาลและวิทยาศาสตร์สุขภาพ</a>
-        <div class="img-container">
-          <a href="https://he01.tci-thaijo.org/index.php/unc" target="_blank"><img src="images/v24.jpg"></a>
-        </div>
-        <span class="issn-text">ISSN : 2822-0706</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he02.tci-thaijo.org/index.php/cmunursing" target="_blank" class="journal-title">พยาบาลสาร มหาวิทยาลัยเชียงใหม่</a>
-        <div class="img-container">
-          <a href="https://he02.tci-thaijo.org/index.php/cmunursing" target="_blank"><img src="images/v25.png"></a>
-        </div>
-        <span class="issn-text">ISSN : 2821-9139</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he02.tci-thaijo.org/index.php/jhri" target="_blank" class="journal-title">วารสารวิจัยและนวัตกรรมทางสุขภาพ</a>
-        <div class="img-container">
-          <a href="https://he02.tci-thaijo.org/index.php/jhri" target="_blank"><img src="img1/v26.jpg"></a>
-        </div>
-        <span class="issn-text">ISSN : 2822-034X</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he02.tci-thaijo.org/index.php/Nubuu" target="_blank" class="journal-title">วารสารคณะพยาบาลศาสตร์ ม.บูรพา</a>
-        <div class="img-container">
-          <a href="https://he02.tci-thaijo.org/index.php/Nubuu" target="_blank"><img src="img1/v27.jpg"></a>
-        </div>
-        <span class="issn-text">ISSN : 2774-1214</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he01.tci-thaijo.org/index.php/JHR" target="_blank" class="journal-title">วารสารวิจัยทางวิทยาศาสตร์สุขภาพ</a>
-        <div class="img-container">
-          <a href="https://he01.tci-thaijo.org/index.php/JHR" target="_blank"><img src="img1/v28.jpg"></a>
-        </div>
-        <span class="issn-text">ISSN : 3027-6659</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he01.tci-thaijo.org/index.php/JNAE" target="_blank" class="journal-title">วารสารการพยาบาลและการศึกษา</a>
-        <div class="img-container">
-          <a href="https://he01.tci-thaijo.org/index.php/JNAE" target="_blank"><img src="img1/v29.jpg"></a>
-        </div>
-        <span class="issn-text">ISSN : 2821-9058</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he01.tci-thaijo.org/index.php/CUTJ" target="_blank" class="journal-title">วารสารมหาวิทยาลัยคริสเตียน</a>
-        <div class="img-container">
-          <a href="https://he01.tci-thaijo.org/index.php/CUTJ" target="_blank"><img src="img1/v30.jpg"></a>
-        </div>
-        <span class="issn-text">ISSN : 3027-6217</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he03.tci-thaijo.org/index.php/jnhi" target="_blank" class="journal-title">วารสารการพยาบาลและนวัตกรรมสุขภาพ</a>
-        <div class="img-container">
-          <a href="https://he03.tci-thaijo.org/index.php/jnhi" target="_blank"><img src="img1/v31.jpg"></a>
-        </div>
-        <span class="issn-text">ISSN : 9999-2567</span>
-      </div>
-    </div>
-
-    <div class="col-6 col-md-3 mb-4 px-2">
-      <div class="card p-3">
-        <a href="https://he04.tci-thaijo.org/index.php/JHIS" target="_blank" class="journal-title">วารสารนวัตกรรมสุขภาพและความปลอดภัย</a>
-        <div class="img-container">
-          <a href="https://he04.tci-thaijo.org/index.php/JHIS" target="_blank"><img src="img1/v32.png"></a>
-        </div>
-        <span class="issn-text">ISSN : 3057-1111</span>
-      </div>
-    </div>
-
-  </div> <div class="row mt-5" style="background:#292828; color:#fff; border-top: 5px solid #4f65e6;">
-    <div class="col-md-6 p-4 text-center text-md-left">
-      <div style="display:flex; align-items:center; gap:10px; margin-bottom:15px; justify-content: center; border-bottom: 0px;">
-        <img src="images/NULOGO.png" style="height:50px;">
-        <img src="images/lnu.jpg" style="height:40px;">
-      </div>
-      เว็บรวบรวมวารสาร มหาวิทยาลัยมหาสารคาม<br>
-      คณะพยาบาลศาสตร์ (Faculty of Nursing)
-    </div>
-    <div class="col-md-6 p-4 text-center text-md-left">
-      <strong>ติดต่อเรา</strong><br>
-      อาคาร ๑๐๐ ปี สมเด็จพระศรีนครินทร์<br>
-      ต.ขามเรียง อ.กันทรวิชัย จ.มหาสารคาม 44150<br>
-      โทรศัพท์ : 0-4371-9800 ต่อ 2324
+    <div class="col-md-6 mb-4 px-4">
+      <h6>ติดต่อเรา</h6>
+      <p style="font-size:14px;">คณะพยาบาลศาสตร์ อาคาร ๑๐๐ ปี สมเด็จพระศรีนครินทร์<br>ต.ขามเรียง อ.กันทรวิชัย จ.มหาสารคาม 44150<br>โทรศัพท์ : 0-4371-9800 ต่อ 2324</p>
     </div>
   </div>
 
-</div> <script>
-function searchJournals() {
-  let keyword = document.getElementById("searchInput").value.toLowerCase();
-  let cards = document.querySelectorAll("#journalContainer > div");
-  cards.forEach(card => {
-    let text = card.innerText.toLowerCase();
-    card.style.display = text.includes(keyword) ? "" : "none";
-  });
-}
-function clearSearch() {
-  document.getElementById("searchInput").value = "";
-  searchJournals();
-}
+</div>
+
+<script>
+  function searchFn() {
+    let input = document.getElementById('searchInput').value.toLowerCase();
+    let cards = document.querySelectorAll('#journalBox .col-mobile');
+    cards.forEach(card => {
+      let text = card.innerText.toLowerCase();
+      card.style.display = text.includes(input) ? "" : "none";
+    });
+  }
+  function clearFn() { document.getElementById('searchInput').value = ""; searchFn(); }
 </script>
-
 </body>
 </html>
