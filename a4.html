@@ -12,27 +12,77 @@
 <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
 
 <style>
-body{font-family:'Itim', cursive;}
+body{
+  font-family:'Itim', cursive;
+  background:#f5f6fa;
+}
 
-.card a{color:#000;text-decoration:none;}
-.card a:hover{color:#4f65e6;}
+.card a{
+  color:#000;
+  text-decoration:none;
+}
 
+.card a:hover{
+  color:#4f65e6;
+}
+
+/* ⭐ ทำให้เหมือนในรูป */
 .card{
-  border-radius:0;
+  border-radius:12px;
   transition:0.3s;
   height:100%;
+  border:1px solid #e5e5e5;
+  padding:15px;
+  background:#fff;
 }
+
+/* hover ลอย */
 .card:hover{
-  box-shadow:-2px 3px 29px 11px rgb(88,88,88);
+  transform:translateY(-5px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
 }
 
-.main-bg{background-color:rgba(51,51,51,0.95);}
-
-img{
-  max-width:100%;
-  height:auto;
+/* จัดชื่อด้านบน */
+.card a:first-child{
+  font-weight:bold;
+  font-size:15px;
+  display:block;
+  min-height:40px;
 }
 
+/* รูปกลาง */
+.card img{
+  display:block;
+  margin:auto;
+  width:100%;
+  height:150px;
+  object-fit:contain;
+}
+
+/* รายละเอียดล่าง */
+.card a:last-child{
+  font-size:13px;
+  color:#555;
+  display:block;
+  margin-top:10px;
+}
+
+.main-bg{
+  background-color:#ffffff;
+  padding:20px;
+  border-radius:10px;
+}
+
+/* search bar ให้สวย */
+input.form-control{
+  border-radius:20px 0 0 20px;
+}
+
+.btn{
+  border-radius:0 20px 20px 0;
+}
+
+/* mobile */
 @media (max-width:768px){
   .card a{font-size:13px;}
   .navbar-nav{text-align:center;}
@@ -45,14 +95,14 @@ img{
 <div style="background-attachment:fixed;background-size:cover;">
 <div class="container main-bg">
 
-<!-- ===== banner ===== -->
+<!-- banner -->
 <div class="row">
   <div class="col-12 p-0">
     <img src="images/bn.jpg" class="img-fluid" style="max-height:395px;object-fit:cover;width:100%;">
   </div>
 </div>
 
-<!-- ===== navbar ===== -->
+<!-- navbar -->
 <div class="row">
   <div class="col-12 p-0">
     <nav class="navbar navbar-expand-lg navbar-dark" style="background:#272727;">
@@ -78,249 +128,175 @@ img{
   </div>
 </div>
 
-<!-- ===== SEARCH ===== -->
-<div class="row my-3">
-  <div class="col-md-8 mx-auto">
+<!-- search -->
+<div class="row my-4">
+  <div class="col-md-6 mx-auto">
     <div class="input-group">
-      <input type="text" id="searchInput" class="form-control" placeholder="ค้นหา" onkeyup="searchJournals()">
+      <input type="text" id="searchInput" class="form-control" placeholder="ค้นหาวารสาร..." onkeyup="searchJournals()">
       <div class="input-group-append">
-        <button class="btn btn-light" onclick="clearSearch()">❌</button>
+        <button class="btn btn-secondary" onclick="clearSearch()">ล้าง</button>
       </div>
     </div>
   </div>
 </div>
 
+<!-- card -->
+<div class="row text-center">
+
+<!-- 1 -->
+<div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+<div class="card p-2 journal-card">
 <br>
+<a href="https://www.2ebook.com/new/library/index/msu" target="_blank" style="font-weight:bold;font-size:14px;display:block;">
+Thai Academic eBook<br>
+</a>
 
+<a href="https://www.2ebook.com/new/library/index/msu" target="_blank">
+<img src="img4/e1.jpg" style="width:100%;height:190px;object-fit:contain;background:#fff;">
+</a>
+
+<a href="https://www.2ebook.com/new/library/index/msu" target="_blank" style="font-size:13px;display:block;margin-top:6px;">
+หนังสืออิเล็กทรอนิกส์ <br>Thai Academic eBook
+</a>
+</div>
+</div>
+
+<!-- 2 -->
+<div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+<div class="card p-2 journal-card">
 <br>
+<a href="https://link.springer.com/" target="_blank" style="font-weight:bold;font-size:14px;">
+Springer eBook Collection
+</a>
 
-<!-- ===== card section ===== -->
-   <div class="row text-center">
-  <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-  <div class="card p-2 journal-card">
-    <br>
-    <!-- ลิงก์ชื่อวารสาร -->
-    <a href="https://www.2ebook.com/new/library/index/msu"
-       target="_blank"
-       style="font-weight:bold;font-size:14px;display:block;">
-      Thai Academic eBook
-    <br>
-    </a>
+<a href="https://link.springer.com/" target="_blank">
+<img src="img4/e2.svg" style="width:100%;height:190px;object-fit:contain;background:#fff;">
+</a>
 
-    <!-- ลิงก์รูปปก -->
-    <a href="https://www.2ebook.com/new/library/index/msu"
-       target="_blank">
-      <img src="img4/e1.jpg"
-           style="width:100%;height:190px;object-fit:contain;background:#fff;">
-    </a>
-    
-    <!-- ลิงก์รายละเอียดฉบับ -->
-    <a href="https://www.2ebook.com/new/library/index/msu"
- Chiang Mai Medical Journal
-       target="_blank"
-       style="font-size:13px;display:block;margin-top:6px;">
-      หนังสืออิเล็กทรอนิกส์ <br>Thai Academic eBook
-    </a>
-    </div>
-  </div>
-  <div class="row text-center">
+<a href="https://link.springer.com/" target="_blank" style="font-size:13px;">
+หนังสืออิเล็กทรอนิกส์ <br>Springer eBook Collection
+</a>
+</div>
+</div>
+
+<!-- 3 -->
 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-  <div class="card p-2 journal-card">
-    <br>
-    <!-- ลิงก์ชื่อวารสาร -->
-    <a href="https://link.springer.com/"
-       target="_blank"
-       style="font-weight:bold;font-size:14px;display:block;">
-      Springer eBook Collection
-    <br>
-    </a>
+<div class="card p-2 journal-card">
+<br>
+<a href="https://research.ebsco.com/c/y42n2l/search?defaultdb=nlebk" target="_blank">
+eBook Collection (EBSCOHost)
+</a>
 
-    <!-- ลิงก์รูปปก -->
-    <a href="https://link.springer.com/"
-       target="_blank">
-      <img src="img4/e2.svg"
-           style="width:100%;height:190px;object-fit:contain;background:#fff;">
-    </a>
-    
-    <!-- ลิงก์รายละเอียดฉบับ -->
-    <a href="https://link.springer.com/"
- Chiang Mai Medical Journal
-       target="_blank"
-       style="font-size:13px;display:block;margin-top:6px;">
-      หนังสืออิเล็กทรอนิกส์ <br>Springer eBook Collection
-    </a>
-    </div>
-  </div>
-    <div class="row text-center">
+<a href="https://research.ebsco.com/c/y42n2l/search?defaultdb=nlebk" target="_blank">
+<img src="img4/e3.png" style="width:100%;height:190px;object-fit:contain;background:#fff;">
+</a>
+
+<a href="https://research.ebsco.com/c/y42n2l/search?defaultdb=nlebk" target="_blank">
+หนังสืออิเล็กทรอนิกส์ <br>eBook Collection (EBSCOHost)
+</a>
+</div>
+</div>
+
+<!-- 4 -->
 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-  <div class="card p-2 journal-card">
-    <br>
-    <!-- ลิงก์ชื่อวารสาร -->
-    <a href="https://research.ebsco.com/c/y42n2l/search?defaultdb=nlebk"
-       target="_blank"
-       style="font-weight:bold;font-size:14px;display:block;">
-      eBook Collection (EBSCOHost)
-    </a>
+<div class="card p-2 journal-card">
+<br>
+<a href="https://research.ebsco.com/c/b5kmfs/search" target="_blank">
+eBook Academic Collection (EBSCO)
+</a>
 
-    <!-- ลิงก์รูปปก -->
-    <a href="https://research.ebsco.com/c/y42n2l/search?defaultdb=nlebk"
-       target="_blank">
-      <img src="img4/e3.png"
-           style="width:100%;height:190px;object-fit:contain;background:#fff;">
-    </a>
-    
-    <!-- ลิงก์รายละเอียดฉบับ -->
-    <a href="https://research.ebsco.com/c/y42n2l/search?defaultdb=nlebk"
- Chiang Mai Medical Journal
-       target="_blank"
-       style="font-size:13px;display:block;margin-top:6px;">
-      หนังสืออิเล็กทรอนิกส์ <br>eBook Collection (EBSCOHost)
-    </a>
-    </div>
-  </div>
-     <div class="row text-center">
+<a href="https://research.ebsco.com/c/b5kmfs/search" target="_blank">
+<img src="img4/e4.png" style="width:100%;height:190px;object-fit:contain;background:#fff;">
+</a>
+
+<a href="https://research.ebsco.com/c/b5kmfs/search" target="_blank">
+หนังสืออิเล็กทรอนิกส์ <br>eBook Academic Collection (EBSCO)
+</a>
+</div>
+</div>
+
+<!-- 5 -->
 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-  <div class="card p-2 journal-card">
-    <br>
-    <!-- ลิงก์ชื่อวารสาร -->
-    <a href="https://research.ebsco.com/c/b5kmfs/search"
-       target="_blank"
-       style="font-weight:bold;font-size:14px;display:block;">
-     eBook Academic Collection (EBSCO)
-    </a>
+<div class="card p-2 journal-card">
+<br>
+<a href="https://www.galepages.com/thmsu" target="_blank">
+Gale Ebook
+</a>
 
-    <!-- ลิงก์รูปปก -->
-    <a href="https://research.ebsco.com/c/b5kmfs/search"
-       target="_blank">
-      <img src="img4/e4.png"
-           style="width:100%;height:190px;object-fit:contain;background:#fff;">
-    </a>
-    <!-- ลิงก์รายละเอียดฉบับ -->
-    <a href="https://research.ebsco.com/c/b5kmfs/search"
- Chiang Mai Medical Journal
-       target="_blank"
-       style="font-size:13px;display:block;margin-top:6px;">
-      หนังสืออิเล็กทรอนิกส์ <br>eBook Academic Collection (EBSCO)
-    </a>
-    </div>
-  </div>
-    <div class="row text-center">
+<a href="https://www.galepages.com/thmsu" target="_blank">
+<img src="img4/e4.png" style="width:100%;height:190px;object-fit:contain;background:#fff;">
+</a>
+
+<a href="https://www.galepages.com/thmsu" target="_blank">
+หนังสืออิเล็กทรอนิกส์ <br>Gale Ebook
+</a>
+</div>
+</div>
+
+<!-- 6 -->
 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-  <div class="card p-2 journal-card">
-    <br>
-    <!-- ลิงก์ชื่อวารสาร -->
-    <a href="https://www.galepages.com/thmsu"
-       target="_blank"
-       style="font-weight:bold;font-size:14px;display:block;">
-     Gale Ebook
-    </a>
+<div class="card p-2 journal-card">
+<br>
+<a href="https://accessmedicine.mhmedical.com/" target="_blank">
+Access Medicine
+</a>
 
-    <!-- ลิงก์รูปปก -->
-    <a href="https://www.galepages.com/thmsu"
-       target="_blank">
-      <img src="img4/e4.png"
-           style="width:100%;height:190px;object-fit:contain;background:#fff;">
-    </a>
-    
-    <!-- ลิงก์รายละเอียดฉบับ -->
-    <a href="https://www.galepages.com/thmsu"
- Chiang Mai Medical Journal
-       target="_blank"
-       style="font-size:13px;display:block;margin-top:6px;">
-      หนังสืออิเล็กทรอนิกส์ <br>Gale Ebook
-    </a>
-    </div>
-  </div>
-  <div class="row text-center">
+<a href="https://accessmedicine.mhmedical.com/" target="_blank">
+<img src="img4/e5.svg" style="width:100%;height:190px;object-fit:contain;background:#fff;">
+</a>
+
+<a href="https://accessmedicine.mhmedical.com/" target="_blank">
+หนังสืออิเล็กทรอนิกส์ <br>Access Medicine
+</a>
+</div>
+</div>
+
+<!-- 7 -->
 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-  <div class="card p-2 journal-card">
-    <br>
-    <!-- ลิงก์ชื่อวารสาร -->
-    <a href="https://accessmedicine.mhmedical.com/"
-       target="_blank"
-       style="font-weight:bold;font-size:14px;display:block;">
-      Access Medicine 
-    </a>
+<div class="card p-2 journal-card">
+<br>
+<a href="https://bookdosepath.com/MSU/home" target="_blank">
+Bookdose PATH E-Library
+</a>
 
-    <!-- ลิงก์รูปปก -->
-    <a href="https://accessmedicine.mhmedical.com/"
-       target="_blank">
-      <img src="img4/e5.svg"
-           style="width:100%;height:190px;object-fit:contain;background:#fff;">
-    </a>
-    
-    <!-- ลิงก์รายละเอียดฉบับ -->
-    <a href="https://accessmedicine.mhmedical.com/"
- Chiang Mai Medical Journal
-       target="_blank"
-       style="font-size:13px;display:block;margin-top:6px;">
-      หนังสืออิเล็กทรอนิกส์ <br>Access Medicine 
-    </div>
-  </div>
-    <div class="row text-center">
+<a href="https://bookdosepath.com/MSU/home" target="_blank">
+<img src="img4/e4.png" style="width:100%;height:190px;object-fit:contain;background:#fff;">
+</a>
+
+<a href="https://bookdosepath.com/MSU/home" target="_blank">
+หนังสืออิเล็กทรอนิกส์ <br>Bookdose PATH E-Library
+</a>
+</div>
+</div>
+
+<!-- 8 -->
 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-  <div class="card p-2 journal-card">
-    <br>
-    <!-- ลิงก์ชื่อวารสาร -->
-    <a href="https://bookdosepath.com/MSU/home"
-       target="_blank"
-       style="font-weight:bold;font-size:14px;display:block;">
-      Bookdose PATH E-Library
-    </a>
+<div class="card p-2 journal-card">
+<br>
+<a href="https://ebookcentral.proquest.com/lib/msuth/home.action" target="_blank">
+ProQuest Ebook Central
+</a>
 
-    <!-- ลิงก์รูปปก -->
-    <a href="https://bookdosepath.com/MSU/home"
-       target="_blank">
-      <img src="img4/e4.png"
-           style="width:100%;height:190px;object-fit:contain;background:#fff;">
-    </a>
-    
-    <!-- ลิงก์รายละเอียดฉบับ -->
-    <a href="https://bookdosepath.com/MSU/home"
- Chiang Mai Medical Journal
-       target="_blank"
-       style="font-size:13px;display:block;margin-top:6px;">
-      หนังสืออิเล็กทรอนิกส์ <br>Bookdose PATH E-Library
-    </a>
-    </div>
-  </div>
-  <div class="row text-center">
-  <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-  <div class="card p-2 journal-card">
-    <br>
-    <!-- ลิงก์ชื่อวารสาร -->
-    <a href="https://ebookcentral.proquest.com/lib/msuth/home.action"
-       target="_blank"
-       style="font-weight:bold;font-size:14px;display:block;">
-      ProQuest Ebook Central
-    </a>
+<a href="https://ebookcentral.proquest.com/lib/msuth/home.action" target="_blank">
+<img src="img4/e7.png" style="width:100%;height:190px;object-fit:contain;background:#fff;">
+</a>
 
-    <!-- ลิงก์รูปปก -->
-    <a href="https://ebookcentral.proquest.com/lib/msuth/home.action"
-       target="_blank">
-      <img src="img4/e7.png"
-           style="width:100%;height:190px;object-fit:contain;background:#fff;">
-    </a>
-    
-    <!-- ลิงก์รายละเอียดฉบับ -->
-    <a href="https://ebookcentral.proquest.com/lib/msuth/home.action"
- Chiang Mai Medical Journal
-       target="_blank"
-       style="font-size:13px;display:block;margin-top:6px;">
-      หนังสืออิเล็กทรอนิกส์ <br>ProQuest Ebook Central 
-    </a>
-    </div>
-  </div>
+<a href="https://ebookcentral.proquest.com/lib/msuth/home.action" target="_blank">
+หนังสืออิเล็กทรอนิกส์ <br>ProQuest Ebook Central
+</a>
+</div>
+</div>
 
 </div>
+
 <br>
 
+<!-- footer -->
 <div class="row" style="background:#292828;color:#fff;">
   <div class="col-md-6 p-4">
-    <div style="display:flex; gap:10px;">
-      <img src="images/NULOGO.png" style="height:50px;">
-      <img src="images/lnu.jpg" style="height:40px;">
-    </div>
+    <img src="images/NULOGO.png" style="height:50px;">
+    <img src="images/lnu.jpg" style="height:40px;">
+    <br>
     เว็บรวบรวมวารสาร ใช้เพื่อการศึกษาเท่านั้น<br>
     มหาวิทยาลัยมหาสารคาม คณะพยาบาลศาสตร์<br>
     Faculty of Nursing Mahasarakham University<br>
@@ -328,7 +304,7 @@ img{
   </div>
 
   <div class="col-md-6 p-4">
-     ติดต่อเรา<br>
+   ติดต่อเรา<br>
     คณะพยาบาลศาสตร์<br>
     อาคาร ๑๐๐ ปี สมเด็จพระศรีนครินทร์<br>
 ตำบลขามเรียง อำเภอกันทรวิชัย จังหวัดมหาสารคาม 44150<br>
@@ -343,11 +319,11 @@ E-mail : nursing@msu.ac.th<br>
 <script>
 function searchJournals(){
   let keyword = document.getElementById("searchInput").value.toLowerCase();
-  let cards = document.querySelectorAll(".row.text-center > div");
+  let cards = document.querySelectorAll(".journal-card");
 
   cards.forEach(card=>{
     let text = card.innerText.toLowerCase();
-    card.style.display = text.includes(keyword) ? "" : "none";
+    card.parentElement.style.display = text.includes(keyword) ? "" : "none";
   });
 }
 
@@ -357,7 +333,5 @@ function clearSearch(){
 }
 </script>
 
-</body>
-</html>
 </body>
 </html>
